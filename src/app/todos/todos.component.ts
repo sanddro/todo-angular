@@ -18,18 +18,24 @@ export class TodosComponent implements OnInit {
   }
 
   updateTodosInStorage() {
+    this.todos.forEach(todo => todo.editing = false);
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
   onAddTodo(text: string) {
     const newId = Math.max(...this.todos.map(todo => todo.id), 0) + 1;
-    this.todos.push({id: newId, text, completed: false});
+    this.todos.push({id: newId, text, completed: false, editing: false});
     this.updateTodosInStorage();
-
   }
 
   onRemoveTodo(id) {
     this.todos = this.todos.filter(todo => todo.id !== id);
+    this.updateTodosInStorage();
+  }
+
+  onUpdateTodo(e, id) {
+    const newVal = e.target.innerHTML;
+    this.todos.find(todo => todo.id === id).text = newVal;
     this.updateTodosInStorage();
   }
 
