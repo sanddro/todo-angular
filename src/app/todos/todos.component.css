@@ -1,0 +1,48 @@
+.todos-container {
+  padding-top: 50px;
+}
+
+.todos {
+  width: 600px;
+  margin: 0 auto;
+  background: white;
+}
+
+.new-todo-input {
+  width: 100%;
+  font-size: 24px;
+  border: none;
+  padding: 10px 0 10px 35px;
+}
+
+.new-todo-input:focus {
+  outline: none;
+}
+
+.new-todo-input::placeholder {
+  opacity: .5;
+}
+
+.todo-checkbox {
+  font-size: 20px;
+}
+
+.todo-checkbox input:checked + label {
+  text-decoration: line-through;
+  opacity: .5;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.todo .delete-button {
+  opacity: 0;
+  transition: .1s opacity;
+}
+
+.todo:hover .delete-button {
+  opacity: .5;
+}

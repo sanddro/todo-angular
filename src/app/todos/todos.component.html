@@ -1,0 +1,17 @@
+<div class="ui container todos-container">
+  <div class="ui tall stacked segments todos">
+    <div class="ui segment">
+      <input type="text" placeholder="What needs to be done?" class="new-todo-input" #newTodo (keyup.enter)="onAddTodo(newTodo.value); newTodo.value = '';">
+    </div>
+    <div class="ui segment todo" *ngFor="let todo of todos">
+      <div class="ui checkbox todo-checkbox">
+        <input [(ngModel)]="todo.completed" (change)="updateTodosInStorage()" type="checkbox">
+        <label>{{todo.text}}</label>
+      </div>
+      <button class="circular ui icon button delete-button red" (click)="onRemoveTodo(todo.id)">
+        <i class="x icon"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
