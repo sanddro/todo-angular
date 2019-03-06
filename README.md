@@ -7,6 +7,6 @@ npm install
 npm start
 ```
 
-# Demo
+## Demo
 https://sanddro.github.io/todo-angular/
 

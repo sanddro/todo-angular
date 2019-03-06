@@ -23,6 +23,7 @@ export class TodosComponent implements OnInit {
   }
 
   onAddTodo(text: string) {
+    if (!text) { return; }
     const newId = Math.max(...this.todos.map(todo => todo.id), 0) + 1;
     this.todos.push({id: newId, text, completed: false, editing: false});
     this.updateTodosInStorage();

@@ -6,21 +6,20 @@
   <div class="ui segment todo" data-content="Add users to your feed"
        *ngFor="let todo of todos"
        [ngClass]="{completed: todo.completed, editing: todo.editing}">
-    <div class="ui checkbox todo-checkbox" [ngClass]="{invisible: todo.editing}">
+    <div class="ui checkbox todo-checkbox">
       <input type="checkbox" class="todo-checkbox"
         [(ngModel)]="todo.completed"
         (change)="updateTodosInStorage()">
-      <label>&nbsp;</label>
+      <label></label>
     </div>
     <div type="text" class="edit-todo-input" tabindex="0"
          [attr.contenteditable]="todo.editing"
          (dblclick)="todo.editing = true; $event.currentTarget.focus();"
-         (blur)="onUpdateTodo($event, todo.id); todo.editing = false;" [innerHTML]="todo.text">
+         (blur)="onUpdateTodo($event, todo.id); todo.editing = false;"
+         [innerHTML]="todo.text">
     </div>
     <div class="delete-button-wrapper">
-      <button class="circular ui icon button delete-button red"
-              (click)="onRemoveTodo(todo.id)"
-              [ngClass]="{invisible: todo.editing}">
+      <button class="circular ui icon button delete-button red" (click)="onRemoveTodo(todo.id)">
         <i class="x icon"></i>
       </button>
     </div>
